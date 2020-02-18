@@ -14,17 +14,17 @@ class ArtistScreen extends Component {
     super(props);
     this.state = {
       btnSelected: 'details',
-      artist: {name: 'Loading…', summary: 'Loading…'},
+      artist: {name: 'Loading', summary: 'Loading'},
     };
   }
 
   componentDidMount() {
-    const {navigation} = this.props;
+    const {navigation, route} = this.props;
 
-    if (navigation.getParam('artist') !== undefined) {
-      this.setArtist(navigation.getParam('artist', null));
+    if (route.params?.artist !== undefined) {
+      this.setArtist(route.params?.artist);
     } else {
-      fetchArtist(navigation.getParam('artistId', null)).then(response => {
+      fetchArtist(route.params?.artistId).then(response => {
         this.setArtist(response);
       });
     }
@@ -46,18 +46,18 @@ class ArtistScreen extends Component {
   }
 
   render() {
-    const {navigation} = this.props;
+    const {navigation, route} = this.props;
 
     const artistName = this.state.artist.name;
     const artistBio = this.state.artist.summary;
-    const artistId = navigation.getParam('artistId');
+    const artistId = route.params?.artistId;
 
     return (
       <Container style={{alignItems: 'stretch', flexDirection: 'column'}}>
         <Header
           style={{
             backgroundColor:
-              navigation.getParam('fromProgram') == true
+              route.params?.fromProgram == true
                 ? GLOBAL.COLOR.YFFRED
                 : GLOBAL.COLOR.YFFGREEN,
           }}>

@@ -1,12 +1,12 @@
-import { Body, Button, Container, Header, Icon, Left, ListItem, Right, Title } from 'native-base';
+import { Body, Button, Container, Header, Icon, Left, ListItem, Right, Text, Title, View } from 'native-base';
 import React, { Component } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
 import { storage } from '../api/storage';
 import GLOBAL from '../constants/constants';
 
 class ArtistsScreen extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {dataSource: [], loading: true};
   }
 
@@ -67,12 +67,12 @@ class ArtistsScreen extends Component {
             <FlatList
               style={{alignSelf: 'stretch'}}
               data={this.state.dataSource}
-              renderItem={rowData => (
+              renderItem={({item}) => (
                 <ListItem
                   style={styles.item}
-                  onPress={this.selectedArtistRow.bind(this, rowData)}>
+                  onPress={this.selectedArtistRow.bind(this, item)}>
                   <Text style={styles.listLabel}>
-                    {rowData.name.toUpperCase()}
+                    {item.name.toUpperCase()}
                   </Text>
                 </ListItem>
               )}

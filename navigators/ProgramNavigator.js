@@ -15,17 +15,3 @@ const ProgramNavigator = () => {
 };
 
 export default ProgramNavigator;
-
-// createStackNavigator(
-//   {
-//     PROGRAM: {
-//       screen: ProgramScreen,
-//     },
-//     ARTIST: {
-//       screen: ArtistScreen,
-//     },
-//   },
-//   {
-//     headerMode: 'none',
-//   },
-// ));
