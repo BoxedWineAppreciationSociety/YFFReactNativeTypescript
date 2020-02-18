@@ -46,9 +46,7 @@ class PlayingTimesList extends Component {
           <FlatList
             style={{alignSelf: 'stretch'}}
             data={this.state.dataSource}
-            renderItem={rowData => (
-              <PlayingTimesListItem performance={rowData} />
-            )}
+            renderItem={({item}) => <PlayingTimesListItem performance={item} />}
           />
         )}
       </View>

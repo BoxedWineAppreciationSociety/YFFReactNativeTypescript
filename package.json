@@ -1,6 +1,6 @@
 {
-  "name": "YFFAndroidTypeScript",
-  "version": "0.0.1",
+  "name": "YackFolkFestival",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",

@@ -8,9 +8,9 @@ module.exports = {
     YFFLIGHTGREY: '#D8D8D8',
   },
   DATES: {
-    FRI: '22 Mar',
-    SAT: '23 Mar',
-    SUN: '24 Mar',
+    FRI: '20 Mar',
+    SAT: '21 Mar',
+    SUN: '22 Mar',
   },
   ENDPOINTS: {
     ALLPERFORMANCES:
