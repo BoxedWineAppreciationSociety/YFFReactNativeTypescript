@@ -1,12 +1,8 @@
 import { Content, List, ListItem } from 'native-base';
-import React, { Component } from 'react';
+import React from 'react';
 import { Text } from 'react-native';
-import GLOBAL from../ constants / constants;
-';
 
-class ArtistsList extends Component {
-  render() {
-    return(
+const ArtistsList = () => (
       <Content>
         <List>
           <ListItem thumbnail>
@@ -17,8 +13,6 @@ class ArtistsList extends Component {
           </ListItem>
         </List>
       </Content>
-    );
-  }
-}
+)
 
 export default ArtistsList;
