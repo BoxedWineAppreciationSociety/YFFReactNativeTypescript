@@ -132,7 +132,7 @@ android {
             applicationId "com.yackfolkfestival.android.yffandroid"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode 14
+            versionCode 16
             versionName "2.1.0"
         }
     }
@@ -189,6 +189,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-mixpanel')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
