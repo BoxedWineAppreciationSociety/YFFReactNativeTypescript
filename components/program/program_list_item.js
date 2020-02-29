@@ -1,9 +1,9 @@
-import { Thumbnail, View } from 'native-base';
-import React, { Component } from 'react';
+import {Thumbnail, View} from 'native-base';
+import React, {Component} from 'react';
 import Moment from 'react-moment';
-import { StyleSheet, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { fetchArtist } from '../../api/artist_fetcher';
+import {StyleSheet, Text} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {fetchArtist} from '../../api/artist_fetcher';
 import images from '../../assets/artist_photos/index';
 import GLOBAL from '../../constants/constants';
 

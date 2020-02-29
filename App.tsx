@@ -16,8 +16,6 @@ import AppDrawerNavigator from './navigators/AppDrawerNavigator';
 declare var global: {HermesInternal: null | {}};
 
 const App = () => {
-  // Init Mixpanel SDK with your project token
-  //  @param apiToken - your project token
   Mixpanel.sharedInstanceWithToken(
     'fae80bc076f11cf15deb0be67d83c74b',
     false,

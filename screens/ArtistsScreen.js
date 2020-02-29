@@ -1,7 +1,19 @@
-import { Body, Button, Container, Header, Icon, Left, ListItem, Right, Text, Title, View } from 'native-base';
-import React, { Component } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
-import { storage } from '../api/storage';
+import {
+  Body,
+  Button,
+  Container,
+  Header,
+  Icon,
+  Left,
+  ListItem,
+  Right,
+  Text,
+  Title,
+  View,
+} from 'native-base';
+import React, {Component} from 'react';
+import {ActivityIndicator, FlatList, StyleSheet} from 'react-native';
+import {storage} from '../api/storage';
 import GLOBAL from '../constants/constants';
 
 class ArtistsScreen extends Component {
@@ -11,6 +23,7 @@ class ArtistsScreen extends Component {
   }
 
   componentDidMount() {
+    trackEvent("Viewed 'Artists' list");
     storage
       .load({key: 'artists', autoSync: true}) // fetch(GLOBAL.ENDPOINTS.ARTISTS)
       .then(responseJson => {

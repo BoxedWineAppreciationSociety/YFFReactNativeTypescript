@@ -1,9 +1,20 @@
-import { Body, Button, Container, Header, Icon, Left, Right, Title, View } from 'native-base';
-import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import {
+  Body,
+  Button,
+  Container,
+  Header,
+  Icon,
+  Left,
+  Right,
+  Title,
+  View,
+} from 'native-base';
+import React, {Component} from 'react';
+import {StyleSheet} from 'react-native';
 import ProgramDayPicker from '../components/program/ProgramDayPicker';
 import ProgramList from '../components/program/program_list';
 import GLOBAL from '../constants/constants';
+import trackEvent from '../helpers/analytics';
 
 class ProgramScreen extends Component {
   constructor(props) {
@@ -18,6 +29,13 @@ class ProgramScreen extends Component {
   updateSelectedDay = dataFromButton => {
     this.setState({daySelected: dataFromButton});
     console.log('Callback');
+    trackEvent(`Viewed ${dataFromButton} program`);
+  };
+
+  openNav = () => {
+    this.props.navigation.openDrawer();
+
+    trackEvent('Nav opened from program screen');
   };
 
   render() {
@@ -26,10 +44,7 @@ class ProgramScreen extends Component {
         <Header style={{backgroundColor: GLOBAL.COLOR.YFFRED}}>
           <Left>
             <Button transparent>
-              <Icon
-                name="menu"
-                onPress={() => this.props.navigation.openDrawer()}
-              />
+              <Icon name="menu" onPress={this.openNav} />
             </Button>
           </Left>
           <Body>

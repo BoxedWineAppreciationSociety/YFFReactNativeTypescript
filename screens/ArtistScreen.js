@@ -1,13 +1,23 @@
-import { Body, Button, Container, Header, Icon, Left, Right, Title } from 'native-base';
-import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { fetchArtist } from '../api/artist_fetcher';
+import {
+  Body,
+  Button,
+  Container,
+  Header,
+  Icon,
+  Left,
+  Right,
+  Title,
+} from 'native-base';
+import React, {Component} from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+import {fetchArtist} from '../api/artist_fetcher';
 import images from '../assets/artist_photos/index';
 import SocialButtonList from '../components/artists/social_button_list';
 import ArtistScreenTabButton from '../components/artist_screen_tab_button';
 import PlayingTimesList from '../components/playing_times_list';
 import GLOBAL from '../constants/constants';
+import trackEvent from '../helpers/analytics';
 
 class ArtistScreen extends Component {
   constructor(props) {
@@ -20,6 +30,8 @@ class ArtistScreen extends Component {
 
   componentDidMount() {
     const {navigation, route} = this.props;
+
+    trackEvent('Opened Artist Screen');
 
     if (route.params?.artist !== undefined) {
       this.setArtist(route.params?.artist);

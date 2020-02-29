@@ -11,9 +11,11 @@ import {
 import React, {Component} from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import GLOBAL from '../constants/constants';
+import trackEvent from '../helpers/analytics';
 
 class MadeWithLoveScreen extends Component {
   render() {
+    trackEvent('Viewed Made with Love Screen');
     return (
       <Container style={styles.container}>
         <Header style={{backgroundColor: GLOBAL.COLOR.YFFRED}}>
