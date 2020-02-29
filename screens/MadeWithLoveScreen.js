@@ -46,7 +46,7 @@ class MadeWithLoveScreen extends Component {
             to support further updates.
             {'\n\n'}
             We hope to see you at the festival!
-            {'\n\n'}?
+            {'\n\n'}
           </Text>
         </ScrollView>
       </Container>
