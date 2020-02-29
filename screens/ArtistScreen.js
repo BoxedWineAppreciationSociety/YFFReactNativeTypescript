@@ -31,12 +31,14 @@ class ArtistScreen extends Component {
   componentDidMount() {
     const {navigation, route} = this.props;
 
-    trackEvent('Opened Artist Screen');
-
     if (route.params?.artist !== undefined) {
       this.setArtist(route.params?.artist);
+      trackEvent('Viewed artist profile', {
+        artist: route.params?.artist.name,
+      });
     } else {
       fetchArtist(route.params?.artistId).then(response => {
+        trackEvent('Viewed artist profile', {artist: response.name});
         this.setArtist(response);
       });
     }

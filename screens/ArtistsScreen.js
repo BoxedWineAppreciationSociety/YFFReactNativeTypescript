@@ -15,6 +15,7 @@ import React, {Component} from 'react';
 import {ActivityIndicator, FlatList, StyleSheet} from 'react-native';
 import {storage} from '../api/storage';
 import GLOBAL from '../constants/constants';
+import trackEvent from '../helpers/analytics';
 
 class ArtistsScreen extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class ArtistsScreen extends Component {
   }
 
   componentDidMount() {
-    trackEvent("Viewed 'Artists' list");
+    trackEvent("Viewed 'Artists' list", {});
     storage
       .load({key: 'artists', autoSync: true}) // fetch(GLOBAL.ENDPOINTS.ARTISTS)
       .then(responseJson => {

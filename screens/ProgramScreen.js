@@ -28,14 +28,13 @@ class ProgramScreen extends Component {
 
   updateSelectedDay = dataFromButton => {
     this.setState({daySelected: dataFromButton});
-    console.log('Callback');
-    trackEvent(`Viewed ${dataFromButton} program`);
+    trackEvent('Tapped program day', {day: dataFromButton});
   };
 
   openNav = () => {
     this.props.navigation.openDrawer();
 
-    trackEvent('Nav opened from program screen');
+    trackEvent('Nav opened from program screen', {});
   };
 
   render() {

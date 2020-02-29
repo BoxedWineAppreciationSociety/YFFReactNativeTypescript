@@ -14,8 +14,11 @@ import GLOBAL from '../constants/constants';
 import trackEvent from '../helpers/analytics';
 
 class MadeWithLoveScreen extends Component {
+  componentDidMount() {
+    trackEvent('Viewed Made with Love Screen', {});
+  }
+
   render() {
-    trackEvent('Viewed Made with Love Screen');
     return (
       <Container style={styles.container}>
         <Header style={{backgroundColor: GLOBAL.COLOR.YFFRED}}>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {ActivityIndicator, FlatList, View} from 'react-native';
 import {storage} from '../../api/storage';
+import trackEvent from '../../helpers/analytics';
 import ProgramListItem from './program_list_item';
 
 class ProgramList extends Component {
@@ -25,7 +26,7 @@ class ProgramList extends Component {
   }
 
   selectedArtistRow(selectedRowData) {
-    trackEvent(`Tapped performance cell`);
+    trackEvent('Tapped performance cell', {artistId: selectedRowData.artistId});
     this.props.navigation.navigate('ARTIST', {
       artistId: selectedRowData.artistId,
       fromProgram: true,
