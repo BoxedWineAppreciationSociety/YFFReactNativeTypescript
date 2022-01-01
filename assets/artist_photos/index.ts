@@ -1,4 +1,4 @@
-export default {
+const artistPhotos: ArtistPhoto =  {
   AdrianClark: require('./AdrianClark.jpg'),
   AnnaScionti: require('./AnnaScionti.jpg'),
   AnnaSmyrk: require('./AnnaSmyrk.jpg'),
@@ -57,3 +57,9 @@ export default {
   YackChoir: require('./YackChoir.jpg'),
   YogaLovesMusic: require('./YogaLovesMusic.jpg'),
 };
+
+export interface ArtistPhoto {
+  [key: string]: any
+}
+
+export default artistPhotos

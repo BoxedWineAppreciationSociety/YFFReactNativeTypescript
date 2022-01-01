@@ -1,15 +1,16 @@
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { View } from 'native-base';
-import React from 'react';
-import { Image, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import GLOBAL from '../constants/constants';
-import MadeWithLoveScreen from '../screens/MadeWithLoveScreen';
-import MoreScreen from '../screens/MoreScreen';
-import ArtistNavigator from './ArtistNavigator';
-import ProgramNavigator from './ProgramNavigator';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
+import { View } from 'native-base'
+import React from 'react'
+import { Image, StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import GLOBAL from '../constants/constants'
+import { MadeWithLoveScreen } from "../screens/MadeWithLoveScreen"
+import { MapScreen } from '../screens/MapScreen'
+import { MoreScreen } from '../screens/MoreScreen'
+import ArtistNavigator from './ArtistNavigator'
+import ProgramNavigator from './ProgramNavigator'
 
-const drawerNavigator = createDrawerNavigator();
+const DrawerNavigator = createDrawerNavigator();
 
 const MainNavigationComponent = ({progress, ...rest}) => (
   <SafeAreaView style={styles.container}>
@@ -27,7 +28,7 @@ const MainNavigationComponent = ({progress, ...rest}) => (
 
 const AppDrawerNavigator = () => {
   return (
-    <drawerNavigator.Navigator
+    <DrawerNavigator.Navigator
       drawerContent={props => MainNavigationComponent(props)}
       drawerContentOptions={{
         labelStyle: {
@@ -36,8 +37,9 @@ const AppDrawerNavigator = () => {
           fontWeight: 'normal',
         },
         activeTintColor: GLOBAL.COLOR.YFFBROWN,
-      }}>
-      <drawerNavigator.Screen
+      }}
+    >
+      <DrawerNavigator.Screen
         name="PROGRAM"
         component={ProgramNavigator}
         options={{
@@ -51,7 +53,7 @@ const AppDrawerNavigator = () => {
           ),
         }}
       />
-      <drawerNavigator.Screen
+      <DrawerNavigator.Screen
         name="ARTISTS"
         component={ArtistNavigator}
         options={{
@@ -65,7 +67,21 @@ const AppDrawerNavigator = () => {
           ),
         }}
       />
-      <drawerNavigator.Screen
+      <DrawerNavigator.Screen
+        name="MAP"
+        component={MapScreen}
+        options={{
+          drawerLabel: 'MAP',
+          drawerIcon: ({}) => (
+            <Image
+              source={require('../assets/icons/ic-drawer-map.png')}
+              resizeMode="contain"
+              style={{width: 20, height: 20, tintColor: GLOBAL.COLOR.YFFBROWN}}
+            />
+          ),
+        }}
+      />
+      <DrawerNavigator.Screen
         name="MORE"
         component={MoreScreen}
         options={{
@@ -79,7 +95,7 @@ const AppDrawerNavigator = () => {
           ),
         }}
       />
-      <drawerNavigator.Screen
+      <DrawerNavigator.Screen
         name="MADE WITH LOVE"
         component={MadeWithLoveScreen}
         options={{
@@ -93,7 +109,7 @@ const AppDrawerNavigator = () => {
           ),
         }}
       />
-    </drawerNavigator.Navigator>
+    </DrawerNavigator.Navigator>
   );
 };
 

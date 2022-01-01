@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
 import GLOBAL from '../constants/constants';
 import PlayingTimesListItem from './playing_time_list_item';
 
@@ -39,8 +39,7 @@ class PlayingTimesList extends Component {
 
   render() {
     return (
-      <View>
-        {this.state.loading ? (
+        this.state.loading ? (
           <ActivityIndicator size="large" />
         ) : (
           <FlatList
@@ -48,8 +47,7 @@ class PlayingTimesList extends Component {
             data={this.state.dataSource}
             renderItem={({item}) => <PlayingTimesListItem performance={item} />}
           />
-        )}
-      </View>
+        )
     );
   }
 }

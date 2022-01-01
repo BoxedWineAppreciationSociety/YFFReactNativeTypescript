@@ -1,18 +1,19 @@
 import AsyncStorage from '@react-native-community/async-storage';
+import { log } from 'react-native-reanimated'
 import Storage from 'react-native-storage';
 import GLOBAL from '../constants/constants';
 
 export const storage = new Storage({
   storageBackend: AsyncStorage,
 
-  // Expire data after 1 day (which will force a resync)
+  // Expire data after 1 hour (which will force a resync)
   // Because we have autoSync on it will used the expired data
   // if the resync fails
-  defaultExpires: 10,
+  defaultExpires: 1000 * 3600,
   autoSync: true,
 
   // Cache the responses in memory for speedy loading
-  enableCache: false,
+  enableCache: true,
 
   // Various sync methods for the different keys
   sync: {
@@ -20,7 +21,6 @@ export const storage = new Storage({
       const response = await fetch(GLOBAL.ENDPOINTS.ARTISTS);
       const responseText = await response.text();
 
-      console.log('artist sync response: ', responseText);
       const json = JSON.parse(responseText);
 
       if (json && json.artists) {
@@ -40,7 +40,6 @@ export const storage = new Storage({
       const response = await fetch(GLOBAL.ENDPOINTS.FRIPERFORMANCES);
       const responseText = await response.text();
 
-      console.log('friday performances sync response: ', responseText);
       const json = JSON.parse(responseText);
 
       if (json && json.performances) {
@@ -60,7 +59,6 @@ export const storage = new Storage({
       const response = await fetch(GLOBAL.ENDPOINTS.SATPERFORMANCES);
       const responseText = await response.text();
 
-      console.log('saturday performances sync response: ', responseText);
       const json = JSON.parse(responseText);
 
       if (json && json.performances) {
@@ -80,7 +78,6 @@ export const storage = new Storage({
       const response = await fetch(GLOBAL.ENDPOINTS.SUNPERFORMANCES);
       const responseText = await response.text();
 
-      console.log('sunday performances sync response: ', responseText);
       const json = JSON.parse(responseText);
 
       if (json && json.performances) {
@@ -100,7 +97,6 @@ export const storage = new Storage({
       const response = await fetch(GLOBAL.ENDPOINTS.ALLPERFORMANCES);
       const responseText = await response.text();
 
-      console.log('all performances sync response: ', responseText);
       const json = JSON.parse(responseText);
 
       if (json && json.performances) {
