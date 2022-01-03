@@ -1,0 +1,1 @@
+export { ArtistsListScreen } from './ArtistsListScreen'

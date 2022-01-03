@@ -1,16 +1,16 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import ArtistScreen from '../screens/ArtistScreen';
-import ArtistsScreen from '../screens/ArtistsScreen';
+import { ArtistDetailsScreen } from '../screens/ArtistDetailsScreen'
+import { ArtistsListScreen } from '../screens/ArtistsListScreen';
 
-const stackNavigator = createStackNavigator();
+const StackNavigator = createStackNavigator();
 
 const ArtistNavigator = () => {
   return (
-    <stackNavigator.Navigator headerMode="none">
-      <stackNavigator.Screen name="ARTISTS" component={ArtistsScreen} />
-      <stackNavigator.Screen name="ARTIST" component={ArtistScreen} />
-    </stackNavigator.Navigator>
+    <StackNavigator.Navigator headerMode="none">
+      <StackNavigator.Screen name="ARTISTS" component={ArtistsListScreen} />
+      <StackNavigator.Screen name="ARTIST" component={ArtistDetailsScreen} />
+    </StackNavigator.Navigator>
   );
 };
 
